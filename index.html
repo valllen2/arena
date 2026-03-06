@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arena da Montanha | Complexo Esportivo Passo Fundo</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* --- CSS PROFISSIONAL --- */
+        :root {
+            --primary: #2ecc71; /* Verde Gramado */
+            --primary-hover: #27ae60;
+            --dark: #0a0a0a;
+            --card-bg: #161616;
+            --text: #ffffff;
+            --text-muted: #a0a0a0;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header e Nav */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 0;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #222;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        .logo span { color: var(--primary); }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover { color: var(--primary); }
+
+        .btn-cta {
+            background: var(--primary);
+            color: var(--dark) !important;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 800 !important;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), 
+                        url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1920');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 span { color: var(--primary); }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .btn-main {
+            padding: 15px 35px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition);
+        }
+
+        .btn-primary { background: var(--primary); color: var(--dark); }
+        .btn-outline { border: 2px solid var(--text); color: var(--text); }
+
+        .btn-primary:hover { transform: translateY(-3px); background: var(--primary-hover); }
+
+        /* Estrutura / Grid */
+        .section-padding { padding: 100px 0; }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+
+        .grid-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #222;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-10px);
+        }
+
+        .feature-card i {
+            color: var(--primary);
+            margin-bottom: 20px;
+            width: 50px;
+            height: 50px;
+        }
+
+        /* Gastronomia / Pizza */
+        .gastronomia {
+            background: #111;
+            border-radius: 30px;
+            padding: 60px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            align-items: center;
+        }
+
+        .pizza-img {
+            width: 100%;
+            height: 400px;
+            background: url('https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=800') center/cover;
+            border-radius: 20px;
+        }
+
+        .badge {
+            background: var(--primary);
+            color: var(--dark);
+            padding: 5px 12px;
+            font-size: 0.7rem;
+            font-weight: 900;
+            border-radius: 50px;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        footer {
+            padding: 60px 0;
+            text-align: center;
+            border-top: 1px solid #222;
+            margin-top: 50px;
+        }
+
+        /* Responsividade Mobile */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero-content h1 { font-size: 3rem; }
+            .btn-group { flex-direction: column; }
+            .gastronomia { padding: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="navbar">
+        <nav class="container">
+            <div class="logo">Arena <span>Montanha</span></div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#estrutura">Estrutura</a></li>
+                <li><a href="#pizza">Pizzaria</a></li>
+                <li><a href="#contato" class="btn-cta">Marcar Horário</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="hero-content container">
+            <div class="badge">A MELHOR ESTRUTURA DE PASSO FUNDO</div>
+            <h1>O SEU JOGO <br>MERECE UM <span>ELITE</span>.</h1>
+            <p>Society profissional, 4 quadras de vôlei de areia, churrasqueiras e a melhor pizza da região em um só lugar.</p>
+            <div class="btn-group">
+                <a href="#contato" class="btn-main btn-primary">Reservar no WhatsApp</a>
+                <a href="#estrutura" class="btn-main btn-outline">Ver Estrutura</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="estrutura" class="container section-padding">
+        <h2 class="section-title">O que temos aqui</h2>
+        <div class="grid-features">
+            <div class="feature-card">
+                <i data-lucide="layout"></i>
+                <h3>Society Profissional</h3>
+                <p>Gramado sintético de última geração para evitar lesões e garantir o show.</p>
+            </div>
+            <div class="feature-card">
+                <i data-lucide="sun"></i>
+                <h3>4 Quadras de Areia</h3>
+                <p>Estrutura completa para Vôlei de Areia, Futevôlei e Beach Tênis.</p>
+            </div>
+            <div class="feature-card">
+                <i data-lucide="flame"></i>
+                <h3>Espaço Churrasco</h3>
+                <p>Várias churrasqueiras disponíveis para sua resenha após a partida.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="pizza" class="container">
+        <div class="gastronomia">
+            <div class="pizza-text">
+                <div class="badge">MAIS QUE UM BAR</div>
+                <h2>A Melhor Pizza da Rodada</h2>
+                <p>Fome depois do jogo? Nossa pizzaria interna serve sabores artesanais direto no balcão ou na sua mesa da churrasqueira. Cerveja gelada e a melhor massa de Passo Fundo.</p>
+                <br>
+                <a href="#contato" style="color: var(--primary); font-weight: bold; text-decoration: none;">Ver Cardápio →</a>
+            </div>
+            <div class="pizza-img"></div>
+        </div>
+    </section>
+
+    <footer id="contato">
+        <div class="container">
+            <h2>Arena da Montanha</h2>
+            <p>Passo Fundo - RS</p>
+            <p style="color: var(--text-muted); margin-top: 10px;">Aberto todos os dias até o último cliente.</p>
+            <br>
+            <a href="https://wa.me/5554999999999" class="btn-main btn-primary">Chamar no WhatsApp Agora</a>
+        </div>
+    </footer>
+
+    <script>
+        /* --- JS PROFISSIONAL --- */
+        
+        // 1. Inicializa Ícones
+        lucide.createIcons();
+
+        // 2. Scroll Suave Funcional
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    const headerOffset = 80;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+            });
+        });
+
+        // 3. Efeito no Header ao Scrollar
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.style.padding = "10px 0";
+                navbar.style.background = "rgba(10, 10, 10, 0.95)";
+            } else {
+                navbar.style.padding = "20px 0";
+                navbar.style.background = "rgba(10, 10, 10, 0.8)";
+            }
+        });
+    </script>
+</body>
+</html>
